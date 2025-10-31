@@ -12,6 +12,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
@@ -79,4 +80,12 @@ fun FormDataDiri(modifier: Modifier
             onValueChange = {
                 textAlamat = it
             }
+        )
+
+        HorizontalDivider(
+            modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.padding_medium), top = dimensionResource(
+                id = R.dimen.padding_medium
+            )),
+            thickness = dimensionResource(id = R.dimen.divider_tipis),
+            color = Color.DarkGray
         )
