@@ -63,3 +63,19 @@ fun FormRegistrasi(modifier: Modifier = Modifier) {
         contentScale = ContentScale.Crop
     )
 
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Text(
+            text = "Form Registrasi",
+            style = MaterialTheme.typography.headlineLarge,
+            modifier = Modifier.padding(start = 12.dp, top = 65.dp),
+            textAlign = TextAlign.Center,
+            fontWeight = FontWeight.Bold,
+            fontSize = 34.sp,
+            color = Color.Black,
+        )
+
+    }
+
