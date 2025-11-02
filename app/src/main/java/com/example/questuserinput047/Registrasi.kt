@@ -56,4 +56,10 @@ fun FormRegistrasi(modifier: Modifier = Modifier) {
         calendar.get(Calendar.DAY_OF_MONTH)
     )
 
+    Image(
+        modifier = Modifier.fillMaxSize(),
+        painter = painterResource(id = R.drawable.formbg),
+        contentDescription = null,
+        contentScale = ContentScale.Crop
+    )
 
