@@ -236,3 +236,23 @@ fun FormRegistrasi(modifier: Modifier = Modifier) {
                     Text("Saya setuju dengan syarat & ketentuan")
                 }
 
+                Button(
+                    onClick = {
+                        showDialog = true
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 20.dp)
+                        .height(50.dp)
+                        .clip(RoundedCornerShape(20.dp)),
+                    enabled = isChecked,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = if (isChecked) Color(0xFF1565C0) else Color.LightGray
+                    )
+                ) {
+                    Text("Submit", color = Color.White)
+                }
+            }
+        }
+    }
+
