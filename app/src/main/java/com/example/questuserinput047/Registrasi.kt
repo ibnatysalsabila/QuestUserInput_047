@@ -256,3 +256,38 @@ fun FormRegistrasi(modifier: Modifier = Modifier) {
         }
     }
 
+    if (showDialog) {
+        val dataInput = buildString {
+            append("Nama Lengkap: $nama\n")
+            append("Kota Asal: $kotaAsal\n")
+            append("Tanggal Lahir: $tanggalLahir\n")
+            append("RT/RW: $rt/$rw\n")
+            append("Umur: $umur tahun\n")
+            append("Jenis Kelamin: $gender")
+        }
+
+        AlertDialog(
+            onDismissRequest = {
+                showDialog = false
+            },
+            title = { Text("Data Tersimpan")
+            },
+            text = {
+                Column {
+                    Text(text = "Detail data:")
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(text = dataInput, fontWeight = FontWeight.SemiBold)
+                }
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        showDialog = false
+                    }
+                ) {
+                    Text("Tutup")
+                }
+            }
+        )
+    }
+}
