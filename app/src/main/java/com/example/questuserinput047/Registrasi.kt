@@ -132,3 +132,32 @@ fun FormRegistrasi(modifier: Modifier = Modifier) {
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable {
+                                datePickerDialog.show()
+                            }
+                    ) {
+                        OutlinedTextField(
+                            value = tanggalLahir,
+                            onValueChange = {},
+                            label = { Text("Tanggal Lahir") },
+                            readOnly = true,
+                            singleLine = true,
+                            modifier = Modifier
+                                .fillMaxWidth(),
+                            shape = RoundedCornerShape(16.dp),
+                            interactionSource = remember { MutableInteractionSource() }
+                                .also { interactionSource ->
+                                    LaunchedEffect(interactionSource) {
+                                        interactionSource.interactions.collect {
+                                            if (it is PressInteraction.Release) {
+                                                datePickerDialog.show()
+                                            }
+                                        }
+                                    }
+                                }
+                        )
+                    }
+
