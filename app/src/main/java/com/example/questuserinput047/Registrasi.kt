@@ -42,4 +42,18 @@ fun FormRegistrasi(modifier: Modifier = Modifier) {
 
     val genderOptions = listOf("Laki-laki", "Perempuan")
 
-    }
+    val context = LocalContext.current
+    val calendar = Calendar.getInstance()
+
+    val datePickerDialog = DatePickerDialog(
+        context,
+        { _: DatePicker, selectedYear: Int, selectedMonth: Int, selectedDay: Int ->
+            tanggalLahir = "$selectedDay/${selectedMonth + 1}/$selectedYear" // STATE diperbarui
+            umur = (Calendar.getInstance().get(Calendar.YEAR) - selectedYear).toString()
+        },
+        calendar.get(Calendar.YEAR),
+        calendar.get(Calendar.MONTH),
+        calendar.get(Calendar.DAY_OF_MONTH)
+    )
+
+
