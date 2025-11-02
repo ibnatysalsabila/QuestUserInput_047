@@ -184,3 +184,44 @@ fun FormRegistrasi(modifier: Modifier = Modifier) {
                     )
                 }
 
+                OutlinedTextField(
+                    value = umur,
+                    onValueChange = { umur = it },
+                    label = { Text("Umur") },
+                    singleLine = true,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 6.dp),
+                    shape = RoundedCornerShape(16.dp)
+                )
+
+                Text(
+                    text = "Jenis Kelamin",
+                    fontWeight = FontWeight.Bold,
+                    color = Color.Black,
+                    modifier = Modifier
+                        .align(Alignment.Start)
+                        .padding(top = 12.dp, bottom = 6.dp)
+                )
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(20.dp)
+                ) {
+                    genderOptions.forEach { option ->
+                        Row(
+                            modifier = Modifier.selectable(
+                                selected = (gender == option),
+                                onClick = { gender = option }
+                            ),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            RadioButton(
+                                selected = (gender == option),
+                                onClick = { gender = option }
+                            )
+                            Text(option)
+                        }
+                    }
+                }
+
